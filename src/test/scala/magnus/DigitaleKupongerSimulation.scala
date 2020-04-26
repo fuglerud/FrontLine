@@ -7,7 +7,6 @@ import scala.concurrent.duration._
 class DigitaleKupongerSimulation extends Simulation {
 
   val httpConf = http
-    .baseURL("https://cdcapp.coop.no")
     .acceptEncodingHeader("gzip,deflate")
     .headers(Map("Content-Type" -> "application/json", "charset" -> "UTF-8",  "User-Agent" -> "Android(4.4)/Coop(0.4)/0.1"))
 
@@ -34,7 +33,7 @@ class DigitaleKupongerSimulation extends Simulation {
         exec(http("activateCoupon")
           .post("/coupon/activate")
           .header("X-Token", "${MemberId}")
-          .body(StringBody("""{"offerId": "${item}", "membershipId": "${MemberID}", "osName": "Android", "osVersion": "4.4"}""")).asJSON
+         // .body(StringBody("""{"offerId": "${item}", "membershipId": "${MemberID}", "osName": "Android", "osVersion": "4.4"}""")).asJSON
           .check(jsonPath("$.resultCode").is("SUCCESS")))
       }
     }.exitHereIfFailed

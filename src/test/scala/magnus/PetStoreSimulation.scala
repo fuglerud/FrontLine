@@ -7,7 +7,7 @@ import io.gatling.jdbc.Predef._
 class PetStoreSimulation extends Simulation {
 
 	val httpProtocol = http
-		.baseURL("https://petstore.swagger.io/v2")
+
 		.inferHtmlResources()
 		.acceptEncodingHeader("gzip,deflate")
 		.userAgentHeader("Apache-HttpClient/4.1.1 (java 1.5)")

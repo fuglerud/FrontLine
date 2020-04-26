@@ -8,7 +8,6 @@ import io.gatling.jdbc.Predef._
 class CheckEVCSimulation extends Simulation {
 
 	val httpProtocol = http
-		.baseURL("http://stage-evc.payex.com")
 		.inferHtmlResources()
 		.acceptEncodingHeader("gzip,deflate")
 		.contentTypeHeader("text/xml;charset=UTF-8")

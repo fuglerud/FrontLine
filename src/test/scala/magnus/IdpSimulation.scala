@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 class IdpSimulation extends Simulation{
 
   val httpConf = http
-    .baseURL("https://id.coop.no/ids")
+
     .acceptEncodingHeader("gzip,deflate")
     .headers(Map("Content-Type" -> "application/x-www-form-urlencoded; charset=utf-8"))
     .authorizationHeader("Basic bW9iaWxlX2NsaWVudDptb2JpbGVfc2VjcmV0")

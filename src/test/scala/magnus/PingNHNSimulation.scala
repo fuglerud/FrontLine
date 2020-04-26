@@ -12,7 +12,7 @@ class PingNHNSimulation extends Simulation {
   val headers = Map("Content-Type" -> "application/json");
 
   val httpProtocol = http
-    .baseURL("https://minhelse-hn-mas-02.int-hn.nhn.no")
+
     .inferHtmlResources()
     .acceptEncodingHeader("gzip,deflate")
     .headers(Map("Content-Type" -> "application/json"))

@@ -10,7 +10,7 @@ class NeptuneSimulation extends Simulation{
   val myGlobalVar = new java.util.concurrent.atomic.AtomicInteger(0)
 
   val httpProtocol = http
-    .baseURL("https://sap_pda_ecc_q30.coop.no/neptune")
+
     .inferHtmlResources(BlackList(""".*\.js""", """.*\.css""", """.*\.gif""", """.*\.jpeg""", """.*\.jpg""", """.*\.ico""", """.*\.woff""", """.*\.(t|o)tf""", """.*\.png"""), WhiteList())
     .acceptHeader("application/json, text/javascript, */*; q=0.01")
     .acceptEncodingHeader("gzip, deflate")

@@ -12,7 +12,7 @@ class BagasjeSimulation extends Simulation {
   val headers = Map("Content-Type" -> "application/json");
 
   val httpProtocol = http
-    .baseURL("http://svvutomcat19:17450")
+
     //.baseUrl("https://www.test.vegvesen.no")
     //.baseUrl("https://www.utv.vegvesen.no")
     .inferHtmlResources()
