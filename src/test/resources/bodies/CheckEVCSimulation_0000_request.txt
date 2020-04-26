@@ -1,0 +1,24 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://posapi.cardservices.payex.com/" xmlns:s1="http://API.CardServices.Payex.No/">
+   <soap:Body>
+      <tns:CheckEVC2 xmlns="http://posapi.cardservices.payex.com/">
+         <tns:wrapper>
+            <tns:CheckEVCRequest>
+               <tns:ValueCodeID>0032014142</tns:ValueCodeID>
+               <tns:ValueCodeType>2</tns:ValueCodeType>
+            </tns:CheckEVCRequest>
+            <tns:Footer xsi:type="s1:Footer">
+               <s1:MAC>R+m3o85fX1o82y</s1:MAC>
+            </tns:Footer>
+            <tns:Header xsi:type="s1:Header">
+               <s1:AcquirerId>COOPNORGE</s1:AcquirerId>
+               <s1:AgreementID>7080001237547</s1:AgreementID>
+               <s1:CashRegisterID/>
+               <s1:ClientIP/>
+               <s1:MerchantConceptID>1104</s1:MerchantConceptID>
+               <s1:MerchantID>7080001237547</s1:MerchantID>
+               <s1:TransmissionTime>2015-02-04 12:23:55</s1:TransmissionTime>
+            </tns:Header>
+         </tns:wrapper>
+      </tns:CheckEVC2>
+   </soap:Body>
+</soap:Envelope>
