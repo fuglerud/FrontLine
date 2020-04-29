@@ -23,7 +23,7 @@ class MinHelseSimulation extends Simulation{
 
 
     //Hent Pasientjournal for en bruker
-    .exec(http(requestName = "PasientJournal")
+    .exec(http(requestName = "request_PasientJournal")
       .get(url = "/Min-pasientjournal/?pnr=${pnr}")
       .headers(headers_1)
       .check(regex("\"__AnonymousHash__\": \"(.*?)\"").saveAs("AnonymousHash"))
@@ -31,26 +31,37 @@ class MinHelseSimulation extends Simulation{
       .check(regex("\"__TimeStamp__\": \"(.*?)\"").saveAs("TimeStamp"))
       .check(regex("\"__TjenesteType__\": \"(.*?)\"").saveAs("TjenesteType")))
 
+    /*
     .exec(session=>{
       println("AnonymousHash:")
       println(session("AnonymousHash").as[String])
       session})
+      */
+
 
     //Hent Representasjonsforhold for en bruker
-    .exec(http("GetRepresentasjonsforhold")
+    .exec(http("request_GetRepresentasjonsforhold")
       .get("/api/v1/MinHelse/GetRepresentasjonsforhold?FetchUnreadMessages=true")
       .headers(headers_2)
       .check(status.is(expected = 200))
       .check(regex("\"ProfilGuid\":\"(.*?)\"").saveAs("ProfilGuid")))
 
+    /*
     .exec(session=>{
       println("ProfilGuid:")
       println(session("ProfilGuid").as[String])
       session})
+      */
+
+    //Hent Minhelse
+    .exec(http("request_MinHelse")
+      .get("https://minhelse.hn.test.nhn.no")
+      .headers(headers_2)
+      .check(status.is(expected = 200)))
 
 
 
 
-  //setUp(scn.inject(constantUsersPerSec(10) during (10 seconds))).protocols(httpConf)
-  setUp(scn.inject(atOnceUsers(1))).protocols(httpConf)
+  setUp(scn.inject(constantUsersPerSec(10) during (10))).protocols(httpConf)
+  //setUp(scn.inject(atOnceUsers(1))).protocols(httpConf)
 }
