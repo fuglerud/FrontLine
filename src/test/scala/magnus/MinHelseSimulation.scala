@@ -19,7 +19,7 @@ class MinHelseSimulation extends Simulation{
 
   val scn = scenario("MinHelseSimulation")
 
-    .feed(csv("data/DIFI_testdata.csv").circular)
+    .feed(csv("data/DIFI_testdata.csv").random)
 
 
     //Hent Pasientjournal for en bruker
@@ -62,6 +62,6 @@ class MinHelseSimulation extends Simulation{
 
 
 
-  setUp(scn.inject(constantUsersPerSec(10) during (10))).protocols(httpConf)
+  setUp(scn.inject(constantUsersPerSec(20) during (30))).protocols(httpConf)
   //setUp(scn.inject(atOnceUsers(1))).protocols(httpConf)
 }
